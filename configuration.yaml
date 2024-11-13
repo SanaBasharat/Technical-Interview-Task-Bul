@@ -1,0 +1,9 @@
+database_dir: database\
+database_file: db
+data_dir: extracted_data
+log_dir: logs
+station_data_file: station_data.parquet
+bucket_name: weather-bul-bucket
+secrets_dir: secrets
+gcp_service_account_file: service_acount_credentials.json
+log_level: INFO
