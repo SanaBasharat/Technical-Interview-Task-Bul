@@ -27,6 +27,7 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+5. Add the service_account_credentials.json file to the secrets folder
 ## Usage
 1. Data Extraction module:
 Provide space-separated list of station IDs and years
