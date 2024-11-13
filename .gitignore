@@ -107,4 +107,4 @@ logs
 extracted_data
 database/*
 final_dataset.csv
-service_acount_credentials.json
+secrets/service_account_credentials.json

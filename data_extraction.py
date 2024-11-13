@@ -130,8 +130,11 @@ if __name__ == "__main__":
         station_info_df.to_parquet(os.path.join(config_file["data_dir"], 'station_data.parquet'))
         logger.info("Data extraction complete.")
         logger.info("Uploading to GCS bucket.")
-        load_raw_data_to_gcs()
-        logger.info("All data successfully uploaded to GCS bucket")
+        try:
+            load_raw_data_to_gcs()
+            logger.info("All data successfully uploaded to GCS bucket")
+        except Exception as e:
+            logger.error("Could not upload to GCS. Make sure you have the google service account credentials file in the secrets folder.")
     else:
         logger.error("Please enter arguments or run with -h flag for help.")
                 

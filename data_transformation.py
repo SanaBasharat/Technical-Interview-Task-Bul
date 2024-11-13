@@ -170,5 +170,9 @@ if __name__ == "__main__":
     df = add_ingest_timestamp(df)
     save_to_file(df, file_name, file_type)
     save_to_database(df, db)  
-    load_processed_data_to_gcs(df, file_name, file_type)
-    logger.info("Final data saved in file, database and Google Cloud Storage bucket.")
+    try:
+        load_processed_data_to_gcs(df, file_name, file_type)
+        logger.info("Final data saved in file, database and Google Cloud Storage bucket.")
+    except Exception as e:
+            logger.info("Final data saved in file and database.")
+            logger.error("Could not upload to GCS. Make sure you have the google service account credentials file in the secrets folder.")
